@@ -4,8 +4,8 @@ import csv
 csv_file_path = "links.csv"
 for page in [1]:
 
-    url = f'http://oldweb.lged.gov.bd/GovtWebsites.aspx'
-    grab = requests.get(url)
+    url = f'https://cptu.gov.bd/important-links/links-to-bangladesh-government-websites.html'
+    grab = requests.get(url,verify=False)
     soup = BeautifulSoup(grab.text, 'html.parser')
 
     # Extract all links
