@@ -4,12 +4,14 @@ import csv
 csv_file_path = "links.csv"
 for page in [1]:
 
-    url = f'https://cptu.gov.bd/important-links/links-to-bangladesh-government-websites.html'
+    url = f'http://www.nctb.gov.bd/'
     grab = requests.get(url,verify=False)
     soup = BeautifulSoup(grab.text, 'html.parser')
 
     # Extract all links
-    links = [link.get('href') for link in soup.find_all("a")]
+    links = []
+    for link in soup.find_all("a"):
+        links.append(link)
 
     # Write links to CSV file
 

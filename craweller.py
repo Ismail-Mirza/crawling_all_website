@@ -30,14 +30,14 @@ with open(csv_file_path, newline="", encoding="utf-8") as csv_file:
             for link in links:
                 if link and not link.startswith("#") and not link.startswith("http://") and not link.startswith("https://")  and not link.startswith("mailto:"):
                     root_folder = 'downloaded_files'
-                    website_url = website +'/'+ link.strip("/")
-                    print("downloading from "+website_url)
+                   
                     if not os.path.exists(root_folder):
                         os.makedirs(root_folder)
-                    output_folder = root_folder + "/"+website
-                    if not os.path.exists(output_folder):
-                        os.makedirs(output_folder)
-                    scrape_and_download(website_url, output_folder)
+
+                    website_url = website +'/'+ link.strip("/")
+                    print('crawling...',website_url)
+                    
+                    scrape_and_download(website_url, root_folder)
 
                     
                     
